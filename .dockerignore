@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.vscode
+.idea
+.notebook
+.agents
+.codex
+.env.development
+.env.local
+.env.*.local
+*.log
+*.tar
+*.tar.gz
