@@ -11,7 +11,8 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm run build
 
-FROM nginx:stable-alpine AS runtime
+# 使用固定版本的 Debian 镜像，规避新版 Alpine 在旧宿主机上的系统调用兼容问题。
+FROM nginx:1.30.4 AS runtime
 
 # 仅替换后端地址变量，保留 Nginx 自身变量
 ENV NGINX_ENVSUBST_FILTER=BACKEND_URL
